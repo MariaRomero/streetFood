@@ -5,6 +5,7 @@ class CreateStalls < ActiveRecord::Migration
       t.string :current_location
       t.integer :rating
 
+
       t.timestamps null: false
     end
   end
