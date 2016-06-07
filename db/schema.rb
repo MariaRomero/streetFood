@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20160607151534) do
     t.string   "name"
     t.string   "current_location"
     t.integer  "rating"
-    t.string   "description"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "description"
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
