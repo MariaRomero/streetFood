@@ -1,6 +1,18 @@
 require 'rails_helper'
 
 feature 'stalls' do
+  context 'adding a new stall' do
+    scenario "trader can add a stall"do
+      visit '/'
+      click_link "Add a stall"
+      fill_in "Name", with: "Maria's Kitchen"
+      fill_in "Description", with: "Amazing Venezuelan food"
+      click_button "Create Stall"
+      expect(current_path).to eq("/stalls")
+      expect(page).to have_content "Maria's Kitchen"
+    end
+  end
+
   context 'stalls have been added' do
     before do
       Stall.create(name: "Maria's Kitchen")
