@@ -1,5 +1,6 @@
 No stalls yet
 <% @stalls.each do |stall| %>
   <%= stall.name %>
+  <%= stall.description %>
 <% end %>
 <a><%= link_to "Add a stall", new_stall_path %>  </a>
