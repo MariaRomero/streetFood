@@ -2,4 +2,6 @@
   <%= @stall.name %><br>
   Description:<%= @stall.description %><br>
   Address:<%= @stall.address %><br>
+  <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@stall.latitude},#{@stall.longitude}&markers=#{@stall.latitude},#{@stall.longitude}&zoom=7&size=640x400&key=AIzaSyCZ4K0_zcXxMjm6RwvYCczETWkr0CELFy4",
+              class: 'img-fluid img-rounded', alt: "#{@stall.name} on the map"%>
   <br>
