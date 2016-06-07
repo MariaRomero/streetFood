@@ -5,7 +5,7 @@ feature 'stalls' do
     scenario 'should display a prompt to add a stall' do
       visit '/stalls'
       expect(page).to have_content 'No stalls yet'
-      expect(page).to have_link 'Add a stalls'
+      expect(page).to have_link 'Add a stall'
     end
   end
 end
