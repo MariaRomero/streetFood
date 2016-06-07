@@ -1,6 +1,6 @@
 <br><% if @stalls.any? %>
   <% @stalls.each do |stall| %>
-    Name: <%= stall.name %><br>
+    <%= link_to stall.name, stall_path(stall) %><br>
     Description:<%= stall.description %><br>
     Address:<%= stall.address %><br>
       _________________<br>

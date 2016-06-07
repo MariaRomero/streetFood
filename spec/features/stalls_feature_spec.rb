@@ -25,6 +25,19 @@ feature 'stalls' do
     end
   end
 
+  context 'viewing stalls' do
+
+  let!(:maria){ Stall.create(name:'Maria\'s Kitchen') }
+
+  scenario 'lets a user view a stall' do
+   visit '/stalls'
+   click_link 'Maris\'s Kitchen'
+   expect(page).to have_content 'Maria\'s Kitchen'
+   expect(current_path).to eq "/stalls/#{maria.id}"
+  end
+
+end
+
   context 'no stalls have been added' do
     scenario 'should display a prompt to add a stall' do
       visit '/stalls'
