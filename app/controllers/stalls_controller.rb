@@ -27,6 +27,13 @@ class StallsController < ApplicationController
     redirect_to '/stalls'
   end
 
+  def destroy
+    @stall = Stall.find(params[:id])
+    @stall.destroy
+    flash[:notice] = 'Stall deleted successfully'
+    redirect_to '/stalls'
+ end
+
   private
   def stall_params
     params.require(:stall).permit(:name, :description, :address)

@@ -59,5 +59,14 @@ end
       expect(page).to have_content "105 rectory field crescent, london, SE77EN"
       expect(current_path).to eq "/stalls"
     end
+
+    scenario 'let a trader delete a stall' do
+      visit '/stalls'
+      click_link 'Delete'
+      expect(page).not_to have_content "Maria's Kitchen"
+      expect(page).not_to have_content "Venezuelan food"
+      expect(page).not_to have_content "37 foredown drive, brighton, bn412bd"
+      expect(page).to have_content 'Stall deleted successfully'
+    end
   end
 end

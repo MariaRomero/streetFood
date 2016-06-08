@@ -4,6 +4,8 @@
     Description:<%= stall.description %><br>
     Address:<%= stall.address %><br>
     <%= link_to "Edit", edit_stall_path(stall) %><br>
+    <%= link_to "Delete", stall_path(stall), method: :delete %><br>
+
       _________________<br>
   <% end %>
 
