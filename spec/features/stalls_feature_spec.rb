@@ -31,7 +31,7 @@ feature 'stalls' do
 
   scenario 'lets a user view a stall' do
    visit '/stalls'
-   click_link 'Maris\'s Kitchen'
+   click_link 'Maria\'s Kitchen'
    expect(page).to have_content 'Maria\'s Kitchen'
    expect(current_path).to eq "/stalls/#{maria.id}"
   end
