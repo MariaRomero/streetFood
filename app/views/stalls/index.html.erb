@@ -1,6 +1,7 @@
 <br><% if @stalls.any? %>
   <% @stalls.each do |stall| %>
     <%= link_to stall.name, stall_path(stall) %><br>
+    <%= image_tag stall.image.url(:medium) %><br>
     Description:<%= stall.description %><br>
     Address:<%= stall.address %><br>
     <%= link_to "Edit", edit_stall_path(stall) %><br>
