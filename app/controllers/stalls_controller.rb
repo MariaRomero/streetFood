@@ -13,8 +13,12 @@ class StallsController < ApplicationController
     redirect_to '/stalls'
   end
 
+  def show
+    @stall = Stall.find(params[:id])
+  end
+
   private
   def stall_params
-    params.require(:stall).permit(:name, :description)
+    params.require(:stall).permit(:name, :description, :address)
   end
 end
