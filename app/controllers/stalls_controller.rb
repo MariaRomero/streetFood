@@ -17,6 +17,16 @@ class StallsController < ApplicationController
     @stall = Stall.find(params[:id])
   end
 
+  def edit
+    @stall = Stall.find(params[:id])
+  end
+
+  def update
+    @stall = Stall.find(params[:id])
+    @stall.update(stall_params)
+    redirect_to '/stalls'
+  end
+
   private
   def stall_params
     params.require(:stall).permit(:name, :description, :address)

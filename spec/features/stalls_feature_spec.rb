@@ -15,16 +15,6 @@ feature 'stalls' do
     end
   end
 
-  context 'stalls have been added' do
-    before do
-      Stall.create(name: "Maria's Kitchen")
-    end
-    scenario 'displaying stalls' do
-      visit '/stalls'
-      expect(page).to have_content "Maria's Kitchen"
-    end
-  end
-
   context 'viewing stalls' do
 
   let!(:maria){ Stall.create(name:'Maria\'s Kitchen') }
@@ -43,6 +33,31 @@ end
       visit '/stalls'
       expect(page).to have_content 'No stalls yet'
       expect(page).to have_link 'Add a stall'
+    end
+  end
+
+  context 'stalls have been added and edited' do
+
+    before do
+      Stall.create(name: "Maria's Kitchen", description: "Venezuelan food", address: "37 foredown drive, brighton, bn412bd")
+    end
+
+    scenario 'displaying stalls' do
+      visit '/stalls'
+      expect(page).to have_content "Maria's Kitchen"
+    end
+
+    scenario 'let a trader edit a stall' do
+      visit '/stalls'
+      click_link 'Edit'
+      fill_in 'Name', with: "Maria's Food Stall"
+      fill_in 'Description', with: "Arepas"
+      fill_in "Address", with: "105 rectory field crescent, london, SE77EN"
+      click_button 'Update'
+      expect(page).to have_content "Maria's Food Stall"
+      expect(page).to have_content "Arepas"
+      expect(page).to have_content "105 rectory field crescent, london, SE77EN"
+      expect(current_path).to eq "/stalls"
     end
   end
 end
