@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160608164428) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.string   "description"
+    t.json     "pictures"
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
