@@ -3,6 +3,7 @@
     <%= link_to stall.name, stall_path(stall) %><br>
     Description:<%= stall.description %><br>
     Address:<%= stall.address %><br>
+    <%= link_to "Edit", edit_stall_path(stall) %><br>
       _________________<br>
   <% end %>
 
