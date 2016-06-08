@@ -14,8 +14,8 @@ class StallsController < ApplicationController
   end
 
   def show
-    @events = Event.all
     @stall = Stall.find(params[:id])
+    @events = @stall.events.all
   end
 
   def edit

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160608142323) do
+ActiveRecord::Schema.define(version: 20160608162522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,14 +22,17 @@ ActiveRecord::Schema.define(version: 20160608142323) do
     t.string   "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "stall_id"
   end
+
+  add_index "events", ["stall_id"], name: "index_events_on_stall_id", using: :btree
 
   create_table "stalls", force: :cascade do |t|
     t.string   "name"
     t.string   "current_location"
     t.integer  "rating"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "description"
     t.string   "address"
     t.float    "latitude"
@@ -38,10 +41,6 @@ ActiveRecord::Schema.define(version: 20160608142323) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "menu_image_file_name"
-    t.string   "menu_image_content_type"
-    t.integer  "menu_image_file_size"
-    t.datetime "menu_image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,4 +63,5 @@ ActiveRecord::Schema.define(version: 20160608142323) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "events", "stalls"
 end

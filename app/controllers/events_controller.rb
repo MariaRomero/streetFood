@@ -15,7 +15,8 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    @stalls = Stall.find(params[:stall_id])
+    @event = @stalls.events.build
   end
 
   # GET /events/1/edit
@@ -25,11 +26,12 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    @stalls = Stall.find(params[:stall_id])
+    @event = @stalls.events.build(event_params)
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to @stalls, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -70,6 +72,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :start_time, :date, :location)
+      params.require(:event).permit(:name, :start_time, :date, :location, :stall_id)
     end
 end
