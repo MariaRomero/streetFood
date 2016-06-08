@@ -2,9 +2,18 @@ require 'rails_helper'
 
 feature 'stalls' do
   context 'adding a new stall' do
-    scenario "trader can add a stall with location"do
+    before do
+      visit('/')
+      click_link('Register')
+      fill_in('User name', with: 'testtest')
+      fill_in('Email', with: 'test@example.com')
+      fill_in('Password', with: 'testtest')
+      fill_in('Password confirmation', with: 'testtest')
+      click_button('Sign up')
+    end
+    scenario "trader can add a stall with location" do
       visit '/'
-      click_link "Add a stall"
+      click_link "New Stall"
       fill_in "Name", with: "Maria's Kitchen"
       fill_in "Description", with: "Amazing Venezuelan food"
       fill_in "Address", with: "24 London St, London, UK"
@@ -29,10 +38,19 @@ feature 'stalls' do
 end
 
   context 'no stalls have been added' do
+    before do
+      visit('/')
+      click_link('Register')
+      fill_in('User name', with: 'testtest')
+      fill_in('Email', with: 'test@example.com')
+      fill_in('Password', with: 'testtest')
+      fill_in('Password confirmation', with: 'testtest')
+      click_button('Sign up')
+    end
     scenario 'should display a prompt to add a stall' do
       visit '/stalls'
       expect(page).to have_content 'No stalls yet'
-      expect(page).to have_link 'Add a stall'
+      expect(page).to have_link 'New Stall'
     end
   end
 

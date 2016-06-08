@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>StreetFood</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
+	<head>
+	  <title>StreetFood</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
 
-<body>
-  <%= link_to "Register", new_user_registration_path%>
+	<body>
+	  <% if user_signed_in? %>
+	  	<%= link_to "New Stall", new_stall_path %>
+	  	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+	  <% else %>
+			<%= link_to "Login", new_user_session_path %>
+			<%= link_to "Register", new_user_registration_path %>
+	  <% end %>
+	  
+		<%= notice %>
+		<%= yield %>
 
-<%= notice %>
-<%= yield %>
-
-</body>
+	</body>
 </html>

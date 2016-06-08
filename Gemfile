@@ -26,6 +26,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'geocoder'
 gem 'paperclip'
+gem "factory_girl_rails", "~> 4.0" 
 
 
 group :test do
