@@ -1,0 +1,11 @@
+<%= form_for @stall, html: {multipart: true} do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.submit %>
+<% end %>
