@@ -7,3 +7,18 @@
   <br>
   <%= link_to "Edit", edit_stall_path(@stall) %><br>
   <%= link_to "Delete", stall_path(@stall), method: :delete %>
+  <%= link_to 'New Event', new_event_path %>
+
+
+<div class="simple-calendar">
+  <div class="calendar-heading">
+  <%= month_calendar events: @events do |date, events| %>
+    <%= date.strftime("%d") %>
+    <% events.each do |event| %>
+      <div>
+        <%= event.location %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+</div>
