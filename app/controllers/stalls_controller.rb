@@ -3,6 +3,7 @@ class StallsController < ApplicationController
   def index
     if (params[:user_location])
       @stalls = Stall.near(params[:user_location], 10)
+      @stalls_filter = Stall.near(params[:user_location], 10)
     else
       @stalls = Stall.all
     end
