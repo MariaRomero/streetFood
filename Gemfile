@@ -32,7 +32,7 @@ gem 'autoprefixer-rails'
 gem 'aws-sdk'
 gem 'aws-sdk-v1'
 gem 'dotenv-rails'
-
+gem "factory_girl_rails", "~> 4.0"
 
 group :test do
   gem 'rspec-rails'

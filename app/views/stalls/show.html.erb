@@ -7,10 +7,6 @@
   <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@stall.latitude},#{@stall.longitude}&markers=#{@stall.latitude},#{@stall.longitude}&zoom=15&size=640x400&key=AIzaSyCZ4K0_zcXxMjm6RwvYCczETWkr0CELFy4",
               class: 'img-fluid img-rounded', alt: "#{@stall.name} on the map"%>
   <br>
-  <%= link_to "Edit", edit_stall_path(@stall) %><br>
-  <%= link_to "Delete", stall_path(@stall), method: :delete %>
-  <%= link_to 'New Event', new_stall_event_path(@stall) %>
-
 
 <div class="simple-calendar">
   <div class="calendar-heading">
@@ -27,3 +23,13 @@
     <% end %>
   </div>
 </div>
+
+
+  <% if @stall.user == current_user%>
+    <%= link_to 'New Event', new_stall_event_path(@stall) %>
+    <%= link_to "Edit", edit_stall_path(@stall) %><br>
+    <%= link_to "Delete", stall_path(@stall), method: :delete %>
+    <%= link_to  "Home", stalls_path %>
+  <% else %>
+    <%= link_to  "Home", stalls_path %>
+  <% end %>

@@ -45,7 +45,10 @@ ActiveRecord::Schema.define(version: 20160609100306) do
     t.string   "menu_image_content_type"
     t.integer  "menu_image_file_size"
     t.datetime "menu_image_updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "stalls", ["user_id"], name: "index_stalls_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -62,11 +65,14 @@ ActiveRecord::Schema.define(version: 20160609100306) do
     t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
+    t.string   "user_name"
     t.string   "user_location"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["user_name"], name: "index_users_on_user_name", unique: true, using: :btree
 
   add_foreign_key "events", "stalls"
+  add_foreign_key "stalls", "users"
 end
