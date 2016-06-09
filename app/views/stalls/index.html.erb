@@ -6,7 +6,7 @@
     <%= image_tag stall.image.url(:medium) %><br>
     Description:<%= stall.description %><br>
     Address:<%= stall.address %><br>
-    <% if current_user.id == stall.user.id %>
+    <% if current_user == stall.user %>
 
       <%= link_to "Edit", edit_stall_path(stall) %><br>
       <%= link_to "Delete", stall_path(stall), method: :delete %><br>
@@ -16,10 +16,8 @@
 <% else %>
   No stalls yet
 <% end %>
-<<<<<<< HEAD
-=======
+
 <% if @stalls_filter %>
   <%= render "filter_map" %>
 <% end %>
 <a><%= link_to "Add a stall", new_stall_path %>  </a>
->>>>>>> 0e1f1406d9c15dd4f1475f31bc2da00b8165617a
