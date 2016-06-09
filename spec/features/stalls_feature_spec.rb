@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'web_helper'
 
 feature 'stalls' do
   context 'adding a new stall' do
@@ -25,13 +26,29 @@ feature 'stalls' do
   end
 
   context 'viewing stalls' do
+    before do
+      #visit('/')
+      #click_link('Register')
+      #fill_in('User name', with: 'testtest')
+      #fill_in('Email', with: 'test@example.com')
+      #fill_in('Password', with: 'testtest')
+      #fill_in('Password confirmation', with: 'testtest')
+      #click_button('Sign up')
 
-  let!(:maria){ Stall.create(name:'Maria\'s Kitchen') }
+      #click_link "New Stall"
+      #fill_in "Name", with: "Maria's Kitchen"
+      #fill_in "Description", with: "Amazing Venezuelan food"
+      #fill_in "Address", with: "24 London St, London, UK"
+      #click_button "Create Stall"
+
+    end
+    let!(:maria){ Stall.create(name:'Maria\'s Kitchen') }
 
   scenario 'lets a user view a stall' do
    visit '/stalls'
    click_link 'Maria\'s Kitchen'
    expect(page).to have_content 'Maria\'s Kitchen'
+   puts current_path, user.user_name
    expect(current_path).to eq "/stalls/#{maria.id}"
   end
 
@@ -57,6 +74,13 @@ end
   context 'stalls have been added and edited' do
 
     before do
+      visit('/')
+      click_link('Register')
+      fill_in('User name', with: 'testtest')
+      fill_in('Email', with: 'test@example.com')
+      fill_in('Password', with: 'testtest')
+      fill_in('Password confirmation', with: 'testtest')
+      click_button('Sign up')
       Stall.create(name: "Maria's Kitchen", description: "Venezuelan food", address: "37 foredown drive, brighton, bn412bd")
     end
 
