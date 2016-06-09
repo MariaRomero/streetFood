@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/MariaRomero/streetFood.png?label=ready&title=Ready)](https://waffle.io/MariaRomero/streetFood)
 [![Build Status](https://travis-ci.org/MariaRomero/streetFood.svg?branch=master)](https://travis-ci.org/MariaRomero/streetFood)
 [![Stories in Ready](https://badge.waffle.io/MariaRomero/streetFood.svg?label=ready&title=Ready)](http://waffle.io/MariaRomero/streetFood)
 
