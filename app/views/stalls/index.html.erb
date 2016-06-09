@@ -1,3 +1,5 @@
+<br><%= render "user_location" %>
+<br><%= link_to "Show all", stalls_path %>
 <br><% if @stalls.any? %>
   <% @stalls.each do |stall| %>
     <%= link_to stall.name, stall_path(stall) %><br>
