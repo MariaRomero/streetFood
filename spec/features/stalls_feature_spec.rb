@@ -3,22 +3,9 @@ require 'web_helper'
 
 feature 'stalls' do
   context 'adding a new stall' do
-    before do
-      visit('/')
-      click_link('Register')
-      fill_in('User name', with: 'testtest')
-      fill_in('Email', with: 'test@example.com')
-      fill_in('Password', with: 'testtest')
-      fill_in('Password confirmation', with: 'testtest')
-      click_button('Sign up')
-    end
     scenario "trader can add a stall with location" do
-      visit '/'
-      click_link "New Stall"
-      fill_in "Name", with: "Maria's Kitchen"
-      fill_in "Description", with: "Amazing Venezuelan food"
-      fill_in "Address", with: "24 London St, London, UK"
-      click_button "Create Stall"
+      sign_up
+      creating_stall_maria
       expect(current_path).to eq("/stalls")
       expect(page).to have_content "Maria's Kitchen"
       expect(page).to have_content "24 London St"
@@ -27,19 +14,8 @@ feature 'stalls' do
 
   context 'viewing stalls' do
     before do
-      visit('/')
-      click_link('Register')
-      fill_in('User name', with: 'testtest')
-      fill_in('Email', with: 'test@example.com')
-      fill_in('Password', with: 'testtest')
-      fill_in('Password confirmation', with: 'testtest')
-      click_button('Sign up')
-
-      click_link "New Stall"
-      fill_in "Name", with: "Maria's Kitchen"
-      fill_in "Description", with: "Amazing Venezuelan food"
-      fill_in "Address", with: "24 London St, London, UK"
-      click_button "Create Stall"
+      sign_up
+      creating_stall_maria
     end
 
   scenario 'lets a user view a stall' do
@@ -53,16 +29,8 @@ feature 'stalls' do
 end
 
   context 'no stalls have been added' do
-    before do
-      visit('/')
-      click_link('Register')
-      fill_in('User name', with: 'testtest')
-      fill_in('Email', with: 'test@example.com')
-      fill_in('Password', with: 'testtest')
-      fill_in('Password confirmation', with: 'testtest')
-      click_button('Sign up')
-    end
     scenario 'should display a prompt to add a stall' do
+      sign_up
       visit '/'
       expect(page).to have_content 'No stalls yet'
       expect(page).to have_link 'New Stall'
@@ -72,19 +40,8 @@ end
   context 'stalls have been added and edited' do
 
     before do
-      visit('/')
-      click_link('Register')
-      fill_in('User name', with: 'testtest')
-      fill_in('Email', with: 'test@example.com')
-      fill_in('Password', with: 'testtest')
-      fill_in('Password confirmation', with: 'testtest')
-      click_button('Sign up')
-
-      click_link "New Stall"
-      fill_in "Name", with: "Maria's Kitchen"
-      fill_in "Description", with: "Amazing Venezuelan food"
-      fill_in "Address", with: "24 London St, London, UK"
-      click_button "Create Stall"
+      sign_up
+      creating_stall_maria
     end
 
     scenario 'displaying stalls' do
@@ -117,32 +74,10 @@ end
 
   context 'search for stalls' do
 
-    # before do
-    #   User.create(user_name: 'testtest', email: 'test@example.com', password: 'testtest', password_confirmation: 'testtest')
-    #   Stall.create(name: "Maria's Kitchen", description: "Venezuelan food", address: "37 foredown drive, brighton, bn412bd")
-    #   Stall.create(name: "Taco Stand", description: "Tacos", address: "105 rectory field crescent, London, SE77EN")
-    # end
-
     before do
-      visit('/')
-      click_link('Register')
-      fill_in('User name', with: 'testtest')
-      fill_in('Email', with: 'test@example.com')
-      fill_in('Password', with: 'testtest')
-      fill_in('Password confirmation', with: 'testtest')
-      click_button('Sign up')
-
-      click_link "New Stall"
-      fill_in "Name", with: "Maria's Kitchen"
-      fill_in "Description", with: "Amazing Venezuelan food"
-      fill_in "Address", with: "24 London St, London, UK"
-      click_button "Create Stall"
-
-      click_link "New Stall"
-      fill_in "Name", with: "Ricos Tacos"
-      fill_in "Description", with: "Amazing Tacos"
-      fill_in "Address", with: "24 york road, brighton, bn3 1dl"
-      click_button "Create Stall"
+      sign_up
+      creating_stall_maria
+      creating_stall_tacos
     end
 
     scenario 'search by location' do
