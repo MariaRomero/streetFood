@@ -19,6 +19,7 @@
         <%= date.strftime("%d") %>
         <% events.each do |event| %>
           <div>
+            <%= event.name %>
             <%= event.location %>
           </div>
         <% end %>
