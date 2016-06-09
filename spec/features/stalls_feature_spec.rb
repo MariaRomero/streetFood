@@ -69,4 +69,18 @@ end
       expect(page).to have_content 'Stall deleted successfully'
     end
   end
+
+  context 'search for stalls' do
+    before do
+      Stall.create(name: "Maria's Kitchen", description: "Venezuelan food", address: "37 foredown drive, brighton, bn412bd")
+      Stall.create(name: "Taco Stand", description: "Tacos", address: "105 rectory field crescent, london, SE77EN")
+    end
+    scenario 'search by location' do
+      visit '/stalls'
+      fill_in "Where are you?", with: "London, UK"
+      click_button "Submit"
+      expect(page).not_to have_content "Maria's Kitchen"
+      expect(page).to have_content "Taco Stand"
+    end
+  end
 end

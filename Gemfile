@@ -26,6 +26,9 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'geocoder'
 gem 'paperclip'
+gem "simple_calendar", "~> 2.0"
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 
 
 group :test do

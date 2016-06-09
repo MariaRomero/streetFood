@@ -1,0 +1,6 @@
+<%= form_tag("/stalls",method:"get")do %>
+  <%= label_tag(:user_location, "Where are you?") %>
+  <%= text_field_tag :user_location %>
+
+  <%= submit_tag("Submit") %>
+<% end %>

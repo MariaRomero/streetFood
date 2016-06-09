@@ -1,7 +1,11 @@
 class StallsController < ApplicationController
 
   def index
-    @stalls = Stall.all
+    if (params[:user_location])
+      @stalls = Stall.near(params[:user_location], 10)
+    else
+      @stalls = Stall.all
+    end
   end
 
   def new
@@ -15,6 +19,7 @@ class StallsController < ApplicationController
 
   def show
     @stall = Stall.find(params[:id])
+    @events = @stall.events.all
   end
 
   def edit
@@ -36,6 +41,6 @@ class StallsController < ApplicationController
 
   private
   def stall_params
-    params.require(:stall).permit(:name, :description, :address,:image,:menu_image)
+    params.require(:stall).permit(:name, :description, :address,:image,:menu_image, :user_location)
   end
 end
