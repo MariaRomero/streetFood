@@ -1,0 +1,5 @@
+<% my_url = "http://maps.googleapis.com/maps/api/staticmap?center=#{@stalls_filter.first.latitude},#{@stalls_filter.first.longitude}&zoom=12.7&size=640x400&key=AIzaSyCZ4K0_zcXxMjm6RwvYCczETWkr0CELFy4" %>
+<% @stalls_filter.each do |stall| %>
+<% my_url += "&markers=#{stall.latitude}%2C#{stall.longitude}" %>
+<% end %>
+<%= image_tag my_url %>

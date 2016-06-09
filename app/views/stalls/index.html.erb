@@ -13,7 +13,13 @@
     <% end %>
       _________________<br>
   <% end %>
-
 <% else %>
   No stalls yet
 <% end %>
+<<<<<<< HEAD
+=======
+<% if @stalls_filter %>
+  <%= render "filter_map" %>
+<% end %>
+<a><%= link_to "Add a stall", new_stall_path %>  </a>
+>>>>>>> 0e1f1406d9c15dd4f1475f31bc2da00b8165617a
