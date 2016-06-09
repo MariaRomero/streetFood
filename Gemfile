@@ -29,6 +29,9 @@ gem 'paperclip'
 gem "simple_calendar", "~> 2.0"
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+gem 'aws-sdk'
+gem 'aws-sdk-v1'
+gem 'dotenv-rails'
 
 
 group :test do
