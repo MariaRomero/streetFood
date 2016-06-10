@@ -8,6 +8,7 @@
     Address:<%= stall.address %><br>
     <% if current_user == stall.user %>
 
+
       <%= link_to "Edit", edit_stall_path(stall) %><br>
       <%= link_to "Delete", stall_path(stall), method: :delete %><br>
     <% end %>
@@ -16,8 +17,12 @@
 <% else %>
   No stalls yet
 <% end %>
-
 <% if @stalls_filter %>
   <%= render "filter_map" %>
 <% end %>
+<script>
+  window.stalls = "<%= @stalls_filter %>";
+</script>
+<div id="coords-long" data-longitude="<%= @stalls.first.longitude %>"></div>
+
 <a><%= link_to "Add a stall", new_stall_path %>  </a>
