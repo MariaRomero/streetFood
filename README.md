@@ -20,15 +20,15 @@ Project is [deployed in Heroku](https://team-streetfood.herokuapp.com/)
 The following technologies have been used:
 * Ruby
 * Ruby on Rails
-* Bootstrap
+* CSS
 * JQuery
 * AWS 
 * Omniauth
 * Devise
+* Simple Calendar
 
 ## APIs used
 * Google Maps
-
 
 ## User Stories
 
@@ -96,4 +96,4 @@ I want to post things to Facebook
 ```
 
 ##domain model
-https://www.dropbox.com/s/khqb3yjj482v0ld/StreatFoodUML.png?dl=0
+![alt tag](https://www.dropbox.com/s/p33a4nno4lwgyxa/StreatFoodUML.png?dl=0)
