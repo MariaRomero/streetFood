@@ -11,16 +11,18 @@
       Address: <%= stall.address %><br>
     </div>
 
-    <ul class="small-under-bar">
+
       <% if current_user == stall.user %>
+      <ul class="small-under-bar">
         <li>
           <%= link_to "Edit", edit_stall_path(stall), :class => "bottom-link" %>
         </li>
         <li>
           <%= link_to "Delete", stall_path(stall), :class => "bottom-link", method: :delete %>
         </li>
+        </ul>
       <% end %>
-    </ul>
+
   <% end %>
 <% else %>
   No stalls yet

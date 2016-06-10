@@ -11,9 +11,22 @@ body {
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   color: white;
   font-size: 20px;
+}
+
+.forms {
+  align-content: center;
+
+}
+
+#form-field {
+  text-align: left;
+  width:310px;
+	padding:25px;
+	margin:50px auto;
+  opacity: 0.8;
+	background-color:#383838;
 }
 
 .title {
@@ -55,7 +68,6 @@ body {
 }
 
 .background-box {
-
   background-color: white;
   background-color: hsla(0, 100%, 100%, 0.3);
   align-content: center;
@@ -67,6 +79,10 @@ body {
   color: white;
 }
 
+.links {
+  color: #4d4d4d;
+  font-weight: bold;
+}
 .bottom-link {
   color: black;
   font-size: 18px;
@@ -106,6 +122,115 @@ li a:hover {
     background-color: black;
     color: white;
 }
+
+a {
+	font-size:18px;
+	font-family: 'Roboto', sans-serif;
+	color:#fff;
+  text-align: center;
+  display: inline-table;
+	}
+
+.textbox {
+  width: calc(100% - 33px);
+	margin:10px 0 10px 0;
+	padding:15px;
+	border: solid 1px #ccc;
+	font-size:18px;
+	background-color:#ecf0f1;
+}
+
+
+.simple-calendar {
+  table {
+    align-content: center;
+    display: inline-table;
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+    background-color: #383838;
+    border: 1px solid rgb(221, 221, 221);
+    border-collapse: collapse;
+    box-sizing: border-box;
+    max-width: 70%;
+    width: 60%;
+    max-height: 70%;
+    height: 60%;
+  }
+
+  tr {
+    border-collapse: collapse;
+  }
+
+  th {
+    padding: 6px;
+    border-bottom: 2px solid rgb(221, 221, 221);
+    border-collapse: collapse;
+    border-left: 1px solid rgb(221, 221, 221);
+    border-right: 1px solid rgb(221, 221, 221);
+    border-top: 0px none rgb(51, 51, 51);
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  td {
+    padding: 6px;
+    vertical-align: top;
+    width: 14%;
+
+    border: 1px solid #ddd;
+    border-top-color: rgb(221, 221, 221);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: rgb(221, 221, 221);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: rgb(221, 221, 221);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgb(221, 221, 221);
+    border-left-style: solid;
+    border-left-width: 1px;
+  }
+
+  .day {
+    height: 40px;
+    width: 40px;
+  }
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+    background: #737373
+  }
+
+  .past {
+    color: white
+  }
+  .future {
+    color: white
+  }
+
+  .start-date {}
+
+  .prev-month {
+    color: white;
+    background: white;
+  }
+  .next-month {
+    color: white;
+    background: white;
+  }
+  .current-month {}
+
+  .has-events {}
+}
+
 
 .login-page {
   width: 360px;
@@ -194,4 +319,8 @@ li a:hover {
 }
 .container .info span .fa {
   color: #EF3B3A;
+}
+
+.calendar-title {
+  color: white
 }

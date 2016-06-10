@@ -1,8 +1,8 @@
 class StallsController < ApplicationController
 
   before_action :authenticate_user!, :except => [:index, :show]
-  before_action :owned_post, only: [:edit, :update, :destroy]  
- 
+  before_action :owned_post, only: [:edit, :update, :destroy]
+
   def index
     if (params[:user_location])
       @stalls = Stall.near(params[:user_location], 10)
@@ -10,6 +10,10 @@ class StallsController < ApplicationController
     else
       @stalls = Stall.all
     end
+  end
+
+  def index_info
+    @stalls_filter = Stall.near(params[:user_location], 10)
   end
 
   def new
@@ -25,7 +29,7 @@ class StallsController < ApplicationController
     else
       flash[:alert] = "Your new stall couldn't be created!  Please check the form."
       render :new
-    end    
+    end
   end
 
   def show
@@ -56,11 +60,11 @@ class StallsController < ApplicationController
     params.require(:stall).permit(:name, :description, :address,:image,:menu_image, :user_location)
   end
 
-  def owned_post  
+  def owned_post
     @stall = Stall.find(params[:id])
     unless current_user == @stall.user
       flash[:alert] = "That stall doesn't belong to you!"
       redirect_to root_path
     end
-  end  
+  end
 end

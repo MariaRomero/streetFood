@@ -1,13 +1,16 @@
-<%= form_for @stall, html: {multipart: true} do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+
+<%= form_for @stall, html: {multipart: true}, :class => "forms" do |f| %>
+<div id="form-field">
+    <%= f.label :name %>
+  <%= f.text_field :name %><br>
   <%= f.label :image %>
-  <%= f.file_field :image %>
+  <%= f.file_field :image %><br>
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_field :description %><br>
   <%= f.label :menu_image %>
-  <%= f.file_field :menu_image %>
+  <%= f.file_field :menu_image %><br>
   <%= f.label :address %>
-  <%= f.text_field :address %>
+  <%= f.text_field :address %><br>
   <%= f.submit %>
+</div>
 <% end %>
