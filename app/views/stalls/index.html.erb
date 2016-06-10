@@ -20,9 +20,16 @@
 <% if @stalls_filter %>
   <%= render "filter_map" %>
 <% end %>
+<% array = [] %>
+<% @stalls_filter.each do |s| %>
+  <% array.push(s) %>
+<% end %>
 <script>
-  window.stalls = "<%= @stalls_filter %>";
+  window.stall = "<%=array %>"
 </script>
+
+
+
 <div id="coords-long" data-longitude="<%= @stalls.first.longitude %>"></div>
 
 <a><%= link_to "Add a stall", new_stall_path %>  </a>
