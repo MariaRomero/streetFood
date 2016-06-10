@@ -1,9 +1,15 @@
+<div class="background-box">
 
-  <%= @stall.name %><br>
-  <%= image_tag @stall.image.url(:medium) %><br>
-  Description:<%= @stall.description %><br>
-  <%= image_tag @stall.menu_image.url(:medium) %><br>
-  Address:<%= @stall.address %><br>
+  <p class="title"><%= @stall.name %></p>
+
+  <%= image_tag @stall.image.url(:medium), :class => "images" %>
+  <%= image_tag @stall.menu_image.url(:medium), :class => "images" %><br>
+
+  <div class="description-address">
+    Description:  <%= @stall.description %><br>
+    Address:  <%= @stall.address %><br>
+  </div>
+
   <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@stall.latitude},#{@stall.longitude}&markers=#{@stall.latitude},#{@stall.longitude}&zoom=15&size=640x400&key=AIzaSyCZ4K0_zcXxMjm6RwvYCczETWkr0CELFy4",
               class: 'img-fluid img-rounded', alt: "#{@stall.name} on the map"%>
   <br>
@@ -24,12 +30,24 @@
   </div>
 </div>
 
-
-  <% if @stall.user == current_user%>
-    <%= link_to 'New Event', new_stall_event_path(@stall) %>
-    <%= link_to "Edit", edit_stall_path(@stall) %><br>
-    <%= link_to "Delete", stall_path(@stall), method: :delete %>
-    <%= link_to  "Home", stalls_path %>
-  <% else %>
-    <%= link_to  "Home", stalls_path %>
-  <% end %>
+  <ul class="under-bar">
+    <% if @stall.user == current_user%>
+      <li>
+        <%= link_to 'Create New Event', new_stall_event_path(@stall), :class => "bottom-link" %>
+      </li>
+      <li>
+        <%= link_to "Edit Stall", edit_stall_path(@stall), :class => "bottom-link" %>
+      </li>
+      <li>
+        <%= link_to "Delete Stall", stall_path(@stall), :class => "bottom-link", method: :delete %>
+      </li>
+      <li>
+        <%= link_to  "Home", stalls_path, :class => "bottom-link" %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to  "Home", stalls_path, :class => "bottom-link" %>
+      </li>
+    <% end %>
+  </ul>
+</div>

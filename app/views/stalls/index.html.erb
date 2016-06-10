@@ -1,17 +1,26 @@
-<br><%= render "user_location" %>
-<br><%= link_to "Show all", stalls_path %>
+<div class="background-box">
+  <br><%= render "user_location" %>
+
 <br><% if @stalls.any? %>
   <% @stalls.each do |stall| %>
-    <%= link_to stall.name, stall_path(stall) %><br>
-    <%= image_tag stall.image.url(:medium) %><br>
-    Description:<%= stall.description %><br>
-    Address:<%= stall.address %><br>
-    <% if current_user == stall.user %>
+    <%= link_to stall.name, stall_path(stall), :class => "link" %><br>
+    <%= image_tag stall.image.url(:medium), :class => "images" %><br>
 
-      <%= link_to "Edit", edit_stall_path(stall) %><br>
-      <%= link_to "Delete", stall_path(stall), method: :delete %><br>
-    <% end %>
-      _________________<br>
+    <div class="description-address">
+      Description: <%= stall.description %><br>
+      Address: <%= stall.address %><br>
+    </div>
+
+    <ul class="small-under-bar">
+      <% if current_user == stall.user %>
+        <li>
+          <%= link_to "Edit", edit_stall_path(stall), :class => "bottom-link" %>
+        </li>
+        <li>
+          <%= link_to "Delete", stall_path(stall), :class => "bottom-link", method: :delete %>
+        </li>
+      <% end %>
+    </ul>
   <% end %>
 <% else %>
   No stalls yet
@@ -20,3 +29,4 @@
 <% if @stalls_filter %>
   <%= render "filter_map" %>
 <% end %>
+</div>
