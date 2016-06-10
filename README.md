@@ -96,4 +96,4 @@ I want to post things to Facebook
 ```
 
 ##domain model
-![alt tag](https://www.dropbox.com/s/p33a4nno4lwgyxa/StreatFoodUML.png?dl=0)
+![alt tag](https://www.dropbox.com/s/p33a4nno4lwgyxa/StreatFoodUML.png?raw=1)
