@@ -2,7 +2,7 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
 
-  
+  config.secret_key = '570816a4918c6d8c35230c34c3af65b17428c68999840c0949d57dd2ad563f029ffe50231aedace251530625afcfc48d1699d7129e5156c039ca044a2fc18f7b'
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
