@@ -12,6 +12,8 @@ This project is based on the idea of our lovely lady Maria
 
 ##Project Description
 
+The street food app aims to make street traders more visible and easier to find for customers. Traders are able to quickly post their stalls along with their current location, displayed on a map, pictures and a menu. Traders can add events to a calendar that are visible to customers showing them where the future locations of the stall will be. Customers can enter their location to filter out stalls that are nearby and display the options on a map. 
+
 
 ## Deployed project
 Project is [deployed in Heroku](https://team-streetfood.herokuapp.com/)
