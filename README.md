@@ -16,7 +16,7 @@ The street food app aims to make street traders more visible and easier to find 
 
 
 ## Deployed project
-Project is [deployed in Heroku](https://team-streetfood.herokuapp.com/)
+Project is [deployed in Heroku](https://team-streetfood.herokuapp.com/) <br />
 user email:  test@test.com
 password: 12345678
 
