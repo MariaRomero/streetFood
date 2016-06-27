@@ -12,11 +12,13 @@ This project is based on the idea of our lovely lady Maria
 
 ##Project Description
 
-The street food app aims to make street traders more visible and easier to find for customers. Traders are able to quickly post their stalls along with their current location, displayed on a map, pictures and a menu. Traders can add events to a calendar that are visible to customers showing them where the future locations of the stall will be. Customers can enter their location to filter out stalls that are nearby and display the options on a map. 
+The street food app aims to make street traders more visible and easier to find for customers. Traders are able to quickly post their stalls along with their current location, displayed on a map, pictures and a menu. Traders can add events to a calendar that are visible to customers showing them where the future locations of the stall will be. Customers can enter their location to filter out stalls that are nearby and display the options on a map.
 
 
 ## Deployed project
 Project is [deployed in Heroku](https://team-streetfood.herokuapp.com/)
+user email:  test@test.com
+password: 12345678
 
 ## Technologies
 The following technologies have been used:
@@ -24,7 +26,7 @@ The following technologies have been used:
 * Ruby on Rails
 * CSS
 * JQuery
-* AWS 
+* AWS
 * Omniauth
 * Devise
 * Simple Calendar
@@ -34,19 +36,19 @@ The following technologies have been used:
 
 ## User Stories
 
-``` 
-As a user 
+```
+As a user
 so that I can list my stall
 I want to sign up, Sign in and Sign out
 ```
 
-``` 
+```
 As as user
 So that I can tell advertise my business
 I want to list my stall
 ```
 
-``` 
+```
 As a user
 So that I can tell people where I am
 I want to add location to my listing
